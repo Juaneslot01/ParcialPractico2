@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>TV Series</title>
+    <style>
+        .header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        /* Additional styles for the layout and card */
+        .series-card {
+            display: none; /* Initially hide the card */
+            position: fixed; /* Fixed position to stay in place during scroll */
+            right: 20px; /* Right margin */
+            top: 20px; /* Top margin */
+            width: 300px; /* Set a fixed width */
+        }
+        .series-table-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<div *ngIf="selected">
+    <app-pacientes-detail [pacientesDetail]="selectedPacientes"></app-pacientes-detail>
+</div>
+
+<body>
+<div class="container">
+  <div class="header">
+      Pacientes
+  </div>
+  <div class="row">
+      <div class="col-md-8 series-table-container">
+          <table class="table">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>Nombre</th>
+                      <th>Edad</th>
+                  </tr>
+              </thead>
+              <tbody id="series-table-body">
+                <tr *ngFor="let paciente of pacientes">
+                  <td>
+                    <dd>{{paciente.nombre}}</dd>
+                  </td>
+                  <td>
+                    <dd>{{paciente.edad}}</dd>
+                  </td>
+                </tr>
+
+              </tbody>
+          </table>
+      </div>
+      
+  </div>
+</div>
+</body>
